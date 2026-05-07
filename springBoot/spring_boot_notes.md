@@ -1,8 +1,6 @@
-# 🌱 Spring Boot — Complete Notes (Zero to Running App)
+# 🌱 Spring Boot — Complete Notes
 
-> **Who is this for?** Anyone who wants to understand Spring Boot from scratch — what it is, how it works inside, all the key annotations, and how to build your first app.
 
----
 
 ## 🧠 First — What Even IS Spring Boot?
 
