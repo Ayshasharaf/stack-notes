@@ -1,7 +1,5 @@
 # 🧱 OOP — Object-Oriented Programming (Dead Simple Notes)
 
-> **Goal:** Understand OOP concepts so well you can explain them to anyone AND implement them right away.
-
 ---
 
 ## 🤔 Why Does OOP Even Exist?
@@ -34,8 +32,6 @@ Blueprint   →  Class
 │   "Reuse the code"    │    "One interface, many forms"      │
 └─────────────────────────────────────────────────────────────┘
 ```
-
-We'll cover each with real, simple examples.
 
 ---
 
