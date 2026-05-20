@@ -357,7 +357,6 @@ stack.isEmpty(); // false
 stack.size();
 ```
 
-> ⚠️ **Don't use `Stack<>` class** — it's old and slow. Always use `ArrayDeque<>`.
 
 ### Complexity
 | Operation | Time |
