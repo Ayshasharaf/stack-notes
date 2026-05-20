@@ -307,7 +307,7 @@ Use for         frequency, grouping     membership, visited
 ```
 
 ### Use when
-- Longest Consecutive Sequence (exactly this problem)
+- Longest Consecutive Sequence 
 - "Contains Duplicate" — add all, check size vs length
 - "Visited" set in BFS/DFS
 - Remove duplicates from a list
