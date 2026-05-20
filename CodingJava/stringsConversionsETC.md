@@ -19,6 +19,9 @@ s.trim();                        // older, ASCII-only
 // Replace multiple spaces with single space
 s.replaceAll("\\s+", " ").strip();   // "hello   world" → "hello world"
 
+s = s.toLowerCase().replaceAll("[^a-z0-9]", "");
+
+
 // Split by spaces (useful for word problems)
 String[] words = s.trim().split("\\s+");   // handles multiple spaces safely
 ```
