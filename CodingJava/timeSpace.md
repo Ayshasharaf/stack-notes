@@ -202,20 +202,6 @@ int[][] dp = new int[n][n];   // n * n memory
 
 ---
 
-## 3Sum Example (what you just solved)
-
-```java
-Arrays.sort(nums);              // O(n log n) time, O(1) space
-
-for (int i ...) {               // O(n)
-    while (l < r) { ... }       // O(n) inner loop
-}
-```
-
-- **Time:** O(n log n) + O(n²) → **O(n²)** (n² dominates)
-- **Space:** just a few pointers → **O(1)**
-
----
 
 ## LeetCode Complexity Targets
 
@@ -227,7 +213,6 @@ for (int i ...) {               // O(n)
 | Sorting + loop | O(n log n) | O(1) |
 | HashMap lookup | O(n) | O(n) |
 | Nested loops | O(n²) | O(1) |
-| 3Sum two pointer | O(n²) | O(1) |
 
 ---
 
