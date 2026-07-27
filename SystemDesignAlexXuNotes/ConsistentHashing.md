@@ -127,7 +127,7 @@ Ring with virtual nodes (evenly scattered):
   DB1a  DB2a  DB1b  DB3a  DB2b  DB1c  DB3b  DB2c ...
 ```
 
-![Consistent Hashing](CHVirtualHashing.png)
+![Consistent Hashing](CHVirtualNodes.png)
 
 **Result:** much more even distribution of data/load across servers,
 and rebalancing on add/remove is still cheap (only the affected
