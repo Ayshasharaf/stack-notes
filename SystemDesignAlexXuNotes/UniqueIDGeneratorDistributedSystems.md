@@ -125,7 +125,7 @@ A Snowflake ID is a 64-bit integer split into fields:
 
 **Total: 1 + 41 + 5 + 5 + 12 = 64 bits.**
 
-![Twitter Snowflake Architecture](images/TwitterSnowFlake.png)
+Twitter Snowflake Architecture
 
 **Why it works**
 
@@ -143,6 +143,8 @@ Mitigations:
 
 - Use **NTP (Network Time Protocol)** to keep clocks synced across machines.
 - Detect clock drift/rollback and refuse to generate IDs (or wait) until the clock catches back up.
+
+
 
 ## Twitter Snowflake Architecture
 
