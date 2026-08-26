@@ -163,7 +163,7 @@ public class SecurityConfig {
 
 Run and test: `localhost:8080/hello`
 
-![Browser Basic Auth prompt / Postman request-response headers screenshot](helloRequest_Response.png)
+![Browser Basic Auth prompt / Postman request-response headers screenshot](images/helloRequest_Response.png)
 ---
 
 
@@ -198,7 +198,7 @@ SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Excepti
 ```
 
 **Result:** No cookies are issued. You can verify this in the browser's DevTools → Network → Cookies tab, or in Postman's Cookies panel.
-![No cookies](NoCookies.png)
+![No cookies](images/NoCookies.png)
 ---
 
 
@@ -229,8 +229,8 @@ public UserDetailsService userDetailsService() {
 
 Run and test with either the browser's Basic Auth popup or Postman:
 
-![Postman Basic Auth tab with username "admin" and password filled in, showing 200 OK response](RolesAdmin1.png)
-![Postman Basic Auth tab with username "user1" and password filled in, showing 200 OK response](RolesUser1.png)
+![Postman Basic Auth tab with username "admin" and password filled in, showing 200 OK response](images/RolesAdmin1.png)
+![Postman Basic Auth tab with username "user1" and password filled in, showing 200 OK response](images/RolesUser1.png)
 ---
 
 
@@ -266,7 +266,7 @@ public class SecurityConfig {
 
 **Result:** if a `USER` tries to hit `/admin` (or vice-versa), they get a `403 Forbidden`.
 
-![Postman showing 403 Forbidden response when a USER role hits the /admin endpoint](PreAuthRoles.png)
+![Postman showing 403 Forbidden response when a USER role hits the /admin endpoint](images/PreAuthRoles.png)
 
 ---
 
@@ -307,7 +307,7 @@ You can connect to this database directly from IntelliJ (via the Database icon),
 ```
 localhost:8080/h2-console
 ```
-![IntelliJ Data Sources and Drivers dialog configuring H2 in-memory connection](H2idea.png)
+![IntelliJ Data Sources and Drivers dialog configuring H2 in-memory connection](images/H2idea.png)
 
 ### Fixing the H2 console + Spring Security conflict
 
@@ -334,7 +334,7 @@ SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Excepti
 
 Now `/h2-console` loads and logs in without issues.
 
-![H2 web console showing sample SQL script screen](H2Console.png)
+![H2 web console showing sample SQL script screen](images/H2Console.png)
 
 ---
 
@@ -377,7 +377,7 @@ Running this will throw an error the first time , `JdbcUserDetailsManager` expec
 
 Copy that DDL into `schema.sql`, restart the app , the error is gone, and the `USERS` / `AUTHORITIES` tables now exist. Confirm this in the H2 console:
 
-![H2 console SELECT * FROM USERS showing user1 and admin rows](SQL.png)
+![H2 console SELECT * FROM USERS showing user1 and admin rows](images/SQL.png)
 
 Test with Postman using the created credentials , you should get a `200 OK` and the response body from your protected endpoint.
 
@@ -413,7 +413,7 @@ UserDetails admin = User.withUsername("admin")
 
 **Result:** passwords in the database are now stored as BCrypt hashes (e.g. `$2a$10$VfVjATgIlXncFI2FR...`), never in plain text.
 
-![H2 console showing USERS table with hashed BCrypt passwords](BCrypt.png)
+![H2 console showing USERS table with hashed BCrypt passwords](images/BCrypt.png)
 ---
 
 
@@ -432,7 +432,7 @@ Basic Auth is fine for learning, but real-world APIs almost always use **JWT (JS
 
 ### How it works
 
-![JWT Authentication sequence diagram , User → Client App → Server login request, server generates JWT with secret key, returns JWT, client uses JWT for further requests](jwt.png)
+![JWT Authentication sequence diagram , User → Client App → Server login request, server generates JWT with secret key, returns JWT, client uses JWT for further requests](images/jwt.png)
 
 1. User submits login credentials via the client app.
 2. Server validates credentials and **generates a JWT**, signed with a secret key.
@@ -445,7 +445,7 @@ Basic Auth is fine for learning, but real-world APIs almost always use **JWT (JS
 
 A JWT has three dot-separated parts: `header.payload.signature`
 
-![JWT token structure diagram showing header, payload, and signature sections color-coded](jwtHPS.png)
+![JWT token structure diagram showing header, payload, and signature sections color-coded](images/jwtHPS.png)
 
 | Part          | Contents                                                             | Example                                                             |
 | ------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
@@ -535,7 +535,7 @@ GET localhost:8080/admin
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsIm...
 ```
 
- ![Postman screenshot showing Authorization header with Bearer token and 200 OK "Hello Admin :)" response](jwtToken.png)
+ ![Postman screenshot showing Authorization header with Bearer token and 200 OK "Hello Admin :)" response](images/jwtToken.png)
 
 ---
 
