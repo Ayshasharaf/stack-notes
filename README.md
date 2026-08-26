@@ -19,6 +19,8 @@ Documenting what I learn about software engineering and system design.
 - [Strings, Conversions & More](./languages/java/stringsConversionsETC.md)
 - [Time & Space Complexity](./languages/java/timeSpace.md)
 - [Data Structures & Algorithms](./languages/java/DSAjava.md)
+- [Regex](./languages/java/regex.md)
+
 
 ### 🐍 Languages - Python
 - [Flask Beginner Notes](./languages/python/flask_beginner_notes.md)
