@@ -206,7 +206,94 @@ MEEW is crazy MEEW MEEW
 ```
 
 ---
-
+ 
+## HackerRank Tag Content Extractor
+ 
+Basic regex symbols used here:
+ 
+| Regex | Meaning |
+|---|---|
+| `<` | match literal `<` |
+| `>` | match literal `>` |
+| `.` | any character |
+| `+` | one or more of the previous thing |
+| `[...]` | character set |
+| `[^...]` | NOT these characters |
+| `(...)` | capturing group |
+| `\1` | match the same text captured by group 1 |
+ 
+The regex:
+```
+<([A-Za-z0-9 ]+)>([^<>]+)</\1>
+```
+Think of it as: `<tag>content</tag>`
+ 
+Breakdown:
+- `<` → opening `<`
+- `([A-Za-z0-9 ]+)` → **group 1**: tag name
+- `>` → closing `>`
+- `([^<>]+)` → **group 2**: content (cannot contain `<` or `>`)
+- `</` → closing tag starts
+- `\1` → same tag name as group 1
+- `>` → closing `>`
+### Capturing groups, in action
+ 
+For `<h1>Hello World</h1>`:
+```
+m.group(1)  → "h1"
+m.group(2)  → "Hello World"
+m.group()   → "<h1>Hello World</h1>"   — the entire match
+```
+ 
+### Backreference `\1`
+ 
+In Java, `\\1` in a string literal represents the regex `\1`. It means: *"match exactly what group 1 matched."*
+```
+<h1>Hello</h1>   ✅  — closing tag is h1, matches group 1
+<h1>Hello</h2>   ❌  — closing tag is h2, group 1 was h1, no match
+```
+ 
+### Why `[^<>]+`?
+ 
+`[^<>]+` means: one or more characters that are NOT `<` or `>`. This prevents nested tags from being treated as valid outer content.
+```
+<h1>Hello</h1>                 → "Hello" ✅
+<h1><a>Hello</a></h1>          → outer content invalid; inner "Hello" is valid
+```
+ 
+### Java escaping reminder
+ 
+Regex `\1` becomes the Java string `"\\1"`, because Java uses `\` as its own escape character first.
+ 
+### Main lesson
+ 
+Capturing group + backreference = a way to check that two parts of a string are identical:
+- `(...)` → capture something
+- `\1` → require the same thing again
+This pattern (matching opening/closing tags, or detecting duplicated text) is the core use case for backreferences.
+ 
+---
+ 
+## Quick Review: Java Regex Essentials
+ 
+**1. Core mental model (Pattern, Matcher, String)**
+- `Pattern p = Pattern.compile("regex");` — compiles the rule into memory
+- `Matcher m = p.matcher(text);` — applies that rule to a specific string
+- `m.find()` / `m.matches()` — search for the pattern (`find` scans anywhere; `matches` checks the entire string start to finish)
+**2. Character classes & quantifiers**
+- `[a-zA-Z]` — a character set matching any single letter
+- `\w` — any word character (letters, digits, underscore)
+- `{7,29}` — a quantifier specifying a range (between 7 and 29 repetitions). Always use commas inside curly braces, not hyphens.
+- `[^>]` — a negated set meaning "any character except `>`"
+**3. Anchors**
+- `^` — asserts the start of a string
+- `$` — asserts the end of a string
+**4. Groups & backreferences**
+- `(...)` (capturing groups) — captures matched text into numbered slots
+  - `m.group(0)` = the whole match
+  - `m.group(1)`, `m.group(2)` = specific parenthesized pieces
+- `\1` (backreference) — reuses text captured by the first group. Essential for validating matching opening/closing HTML/XML tags (e.g. ensuring `<(.+)>` matches its corresponding `</\1>`)
+---
 
 
 ## References
