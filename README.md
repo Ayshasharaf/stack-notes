@@ -5,9 +5,9 @@ Documenting what I learn about software engineering and system design.
 ## 📚 Table of Contents
 
 ### ☁️ AWS Cloud Essentials
-- [Storage](./cloud/aws/AWScloudEssentials/Storage.md)
-- [Database](./cloud/aws/AWScloudEssentials/Database.md)
-- [AI/ML Services](./cloud/aws/AWScloudEssentials/AI.md)
+- [Storage](./cloud/aws/Storage.md)
+- [Database](./cloud/aws/Database.md)
+- [AI/ML Services](./cloud/aws/AI.md)
 
 ### 🚀 Frameworks & Spring Boot
 - [Spring Boot Overview](./frameworks/spring-boot/spring_boot_notes.md)
